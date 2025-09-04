@@ -1,5 +1,5 @@
 PairUp!
-A Unity puzzle game inspired by the classic Onet, built with Unity, C# and ScriptableObjects. 
+A Unity puzzle game inspired by the classic Onet, built with Unity and C#.
 The core mechanic: connect two matching tiles with a path of no more than three straight lines. 
 PairUp! adds fresh twists such as dynamic boards, power-ups, and boss battles to keep gameplay engaging.
 
