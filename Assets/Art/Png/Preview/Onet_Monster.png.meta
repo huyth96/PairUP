@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: 25faf0ea88cd512478dc5ce4042f8468
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8857187908963711531
+    second: Onet_Monster_0
+  - first:
+      213: -253058179352558885
+    second: Onet_Monster_1
+  - first:
+      213: 3276642871003736356
+    second: Onet_Monster_2
+  - first:
+      213: -8936025533250952749
+    second: Onet_Monster_3
+  - first:
+      213: -2512124135853031927
+    second: Onet_Monster_4
+  - first:
+      213: -6176893692470721180
+    second: Onet_Monster_5
+  - first:
+      213: 6167244703620908367
+    second: Onet_Monster_6
+  - first:
+      213: 1158918471422751490
+    second: Onet_Monster_7
+  - first:
+      213: 2587920278554526649
+    second: Onet_Monster_8
+  - first:
+      213: 8218597599697414353
+    second: Onet_Monster_9
+  - first:
+      213: 4398990208784413749
+    second: Onet_Monster_10
+  - first:
+      213: 3281450709746180415
+    second: Onet_Monster_11
+  - first:
+      213: 2079536119502947523
+    second: Onet_Monster_12
+  - first:
+      213: -32009025798057471
+    second: Onet_Monster_13
+  - first:
+      213: -581082491187025960
+    second: Onet_Monster_14
+  - first:
+      213: 2243445579183655943
+    second: Onet_Monster_15
+  - first:
+      213: -8120263322755610030
+    second: Onet_Monster_16
+  - first:
+      213: -6593269849013628796
+    second: Onet_Monster_17
+  - first:
+      213: -7777401180426730319
+    second: Onet_Monster_18
+  - first:
+      213: -7482711504563239325
+    second: Onet_Monster_19
+  - first:
+      213: -5282200178093535721
+    second: Onet_Monster_20
+  - first:
+      213: -2446691169063430710
+    second: Onet_Monster_21
+  - first:
+      213: 729484552806310561
+    second: Onet_Monster_22
+  - first:
+      213: -5922917905550238442
+    second: Onet_Monster_23
+  - first:
+      213: 3732141507927527459
+    second: Onet_Monster_24
+  - first:
+      213: 662645932365447191
+    second: Onet_Monster_25
+  - first:
+      213: -5175391180889251620
+    second: Onet_Monster_26
+  - first:
+      213: -1688438907790159129
+    second: Onet_Monster_27
+  - first:
+      213: -5590120678295917152
+    second: Onet_Monster_28
+  - first:
+      213: 8316060048650346943
+    second: Onet_Monster_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Onet_Monster_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 482
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d545513682f41580800000000000000
+      internalID: -8857187908963711531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_1
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 478
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd20f283de4fc7cf0800000000000000
+      internalID: -253058179352558885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_2
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 477
+        width: 91
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4296efda459f87d20800000000000000
+      internalID: 3276642871003736356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_3
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 475
+        width: 91
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1a1c26f1cdcf380800000000000000
+      internalID: -8936025533250952749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_4
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 478
+        width: 92
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90e7bc28864232dd0800000000000000
+      internalID: -2512124135853031927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 480
+        width: 91
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4658eecc9e3474aa0800000000000000
+      internalID: -6176893692470721180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 366
+        width: 89
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45cb3ae164769550800000000000000
+      internalID: 6167244703620908367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_7
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 370
+        width: 89
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 203bac4a53e451010800000000000000
+      internalID: 1158918471422751490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_8
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 372
+        width: 77
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3c54e28c32ae320800000000000000
+      internalID: 2587920278554526649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_9
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 366
+        width: 92
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8a7d119f25e0270800000000000000
+      internalID: 8218597599697414353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_10
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 366
+        width: 92
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534340db94a5c0d30800000000000000
+      internalID: 4398990208784413749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_11
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 369
+        width: 92
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31ef5ed80e0a8d20800000000000000
+      internalID: 3281450709746180415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 260
+        width: 92
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c44194351ffbdc10800000000000000
+      internalID: 2079536119502947523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_13
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 254
+        width: 92
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10253bbe5f74e8ff0800000000000000
+      internalID: -32009025798057471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_14
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 259
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7299f8d849fe7f0800000000000000
+      internalID: -581082491187025960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_15
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 256
+        width: 89
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c89243ed1522f10800000000000000
+      internalID: 2243445579183655943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_16
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 256
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ac48ce7870f4f80800000000000000
+      internalID: -8120263322755610030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_17
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 260
+        width: 92
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 480df3541000084a0800000000000000
+      internalID: -6593269849013628796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_18
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 150
+        width: 83
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b406f435de111490800000000000000
+      internalID: -7777401180426730319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_19
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 144
+        width: 90
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36687cd1881182890800000000000000
+      internalID: -7482711504563239325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_20
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 147
+        width: 89
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71eca30acead1b6b0800000000000000
+      internalID: -5282200178093535721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_21
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 146
+        width: 82
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac593e8485b9b0ed0800000000000000
+      internalID: -2446691169063430710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_22
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 144
+        width: 92
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2a727f556af1a00800000000000000
+      internalID: 729484552806310561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_23
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 153
+        width: 45
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d90edbb819dcda0800000000000000
+      internalID: -5922917905550238442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_24
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 33
+        width: 92
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320d28f7dea3bc330800000000000000
+      internalID: 3732141507927527459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_25
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 42
+        width: 74
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7100082f6f0323900800000000000000
+      internalID: 662645932365447191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_26
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 41
+        width: 85
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd0286134215d28b0800000000000000
+      internalID: -5175391180889251620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_27
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 32
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2183452c57198e0800000000000000
+      internalID: -1688438907790159129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_28
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 32
+        width: 92
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ad2b9e5cd6eb62b0800000000000000
+      internalID: -5590120678295917152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Onet_Monster_29
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 36
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb12f9acd84986370800000000000000
+      internalID: 8316060048650346943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Onet_Monster_0: -8857187908963711531
+      Onet_Monster_1: -253058179352558885
+      Onet_Monster_10: 4398990208784413749
+      Onet_Monster_11: 3281450709746180415
+      Onet_Monster_12: 2079536119502947523
+      Onet_Monster_13: -32009025798057471
+      Onet_Monster_14: -581082491187025960
+      Onet_Monster_15: 2243445579183655943
+      Onet_Monster_16: -8120263322755610030
+      Onet_Monster_17: -6593269849013628796
+      Onet_Monster_18: -7777401180426730319
+      Onet_Monster_19: -7482711504563239325
+      Onet_Monster_2: 3276642871003736356
+      Onet_Monster_20: -5282200178093535721
+      Onet_Monster_21: -2446691169063430710
+      Onet_Monster_22: 729484552806310561
+      Onet_Monster_23: -5922917905550238442
+      Onet_Monster_24: 3732141507927527459
+      Onet_Monster_25: 662645932365447191
+      Onet_Monster_26: -5175391180889251620
+      Onet_Monster_27: -1688438907790159129
+      Onet_Monster_28: -5590120678295917152
+      Onet_Monster_29: 8316060048650346943
+      Onet_Monster_3: -8936025533250952749
+      Onet_Monster_4: -2512124135853031927
+      Onet_Monster_5: -6176893692470721180
+      Onet_Monster_6: 6167244703620908367
+      Onet_Monster_7: 1158918471422751490
+      Onet_Monster_8: 2587920278554526649
+      Onet_Monster_9: 8218597599697414353
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
