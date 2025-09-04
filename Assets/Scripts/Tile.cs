@@ -28,9 +28,11 @@ public class Tile : MonoBehaviour, IPointerClickHandler
     public void Clear()
     {
         removed = true;
-        if (icon != null) icon.enabled = false;
-        gameObject.SetActive(false);
+        if (icon != null) icon.enabled = false;  // ẩn icon
+        if (bg != null) bg.enabled = false;
+                                                
     }
+
 
     public void OnPointerClick(PointerEventData e)
     {
