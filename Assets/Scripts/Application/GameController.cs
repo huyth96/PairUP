@@ -15,31 +15,46 @@ public class GameController : MonoBehaviour
     IPathRenderer _renderer;
     IPathFinder _finder;
     IScoreService _score;
-    IPlayerProgressService _progress;   // 👈 dùng interface thay vì class
+    IPlayerProgressService _progress;
 
     // State
     ITileView _first;
+
+    // === NEW: chống double-tap ===
+    ITileView _lastClicked;
+    float _lastClickTime;
+    const float TapDebounce = 0.15f; // 150ms
 
     void Awake()
     {
         _renderer = pathRenderer;
         _score = new ScoreService();
-        _progress = new PlayerProgressService();  // implement nằm ở Services
+        _progress = new PlayerProgressService();
 
         if (scoreView) scoreView.Bind(_score);
         if (timerView && timerService) timerView.Bind(timerService);
+    }
+
+    void OnEnable()
+    {
+        if (board) board.OnTileClicked += HandleTileClicked;
+        if (timerService) timerService.OnTimeUp += HandleTimeUp;
+    }
+
+    void OnDisable()
+    {
+        if (board) board.OnTileClicked -= HandleTileClicked;
+        if (timerService) timerService.OnTimeUp -= HandleTimeUp;
     }
 
     void Start()
     {
         var (r, c) = board.Size;
         _finder = new GridPathFinderBFS(r, c, (row, col) => board.IsWalkable(row, col));
-        board.OnTileClicked += HandleTileClicked;
 
         if (timerService)
         {
             timerService.StartTimer(timerService.MaxTime);
-            timerService.OnTimeUp += HandleTimeUp;
         }
     }
 
@@ -50,6 +65,15 @@ public class GameController : MonoBehaviour
             Debug.Log("Clicked null or removed tile");
             return;
         }
+
+        // === NEW: Debounce để tránh double-fire trên mobile ===
+        if (_lastClicked == t && (Time.unscaledTime - _lastClickTime) < TapDebounce)
+        {
+            // Debug.Log("Debounced duplicate tap");
+            return;
+        }
+        _lastClicked = t;
+        _lastClickTime = Time.unscaledTime;
 
         Debug.Log($"GameController.HandleTileClicked: {t.Row},{t.Col}, id={t.Id}");
 
@@ -62,9 +86,12 @@ public class GameController : MonoBehaviour
 
         if (_first == t)
         {
-            Debug.Log("Clicked same tile again → reset");
-            if (_first is Tile tileView2) tileView2.SetSelected(false);
-            _first = null;
+            // Chỉ bỏ chọn nếu KHÔNG phải do duplicate tap trong khoảng debounce
+            if ((Time.unscaledTime - _lastClickTime) >= TapDebounce)
+            {
+                if (_first is Tile tileView2) tileView2.SetSelected(false);
+                _first = null;
+            }
             return;
         }
 
@@ -99,11 +126,11 @@ public class GameController : MonoBehaviour
         Debug.Log("YOU WIN!");
         int score = _score.Score;
 
-        _progress.RecordGame(score);                      // 👈 lưu history
-        HighScoreManager.Instance.TrySetHighScore(score); // update high score
-        timerService.StopTimer();
+        _progress.RecordGame(score);
+        HighScoreManager.Instance.TrySetHighScore(score);
+        if (timerService) timerService.StopTimer();
 
-        resultView.ShowWin(score, _progress.HighScore);   // truyền cả high score
+        resultView.ShowWin(score, _progress.HighScore);
     }
 
     void OnLose()

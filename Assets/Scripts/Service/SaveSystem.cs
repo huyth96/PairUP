@@ -10,7 +10,6 @@ public static class SaveSystem
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(saveFile, json);
 
-        // 👇 Debug log đường dẫn và nội dung JSON
         Debug.Log($"[SaveSystem] Saved to: {saveFile}");
         Debug.Log($"[SaveSystem] Content: {json}");
     }
@@ -27,5 +26,10 @@ public static class SaveSystem
         Debug.Log($"[SaveSystem] Loaded from: {saveFile}");
         Debug.Log($"[SaveSystem] Content: {json}");
         return JsonUtility.FromJson<PlayerData>(json);
+    }
+    public static void Delete()
+    {
+        if (System.IO.File.Exists(saveFile))
+            System.IO.File.Delete(saveFile);
     }
 }
