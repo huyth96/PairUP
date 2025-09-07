@@ -7,7 +7,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private UILinePathRendererAdapter pathRenderer; // <- đổi kiểu
     [SerializeField] ScoreView scoreView;
     [SerializeField] TimerView timerView;
-    [SerializeField] GameTimerService timerService;    // component cùng GameObject hoặc ở đâu cũng được
+    [SerializeField] GameTimerService timerService;    
+    [SerializeField] ResultView resultView;   
 
     // Services
     IPathRenderer _renderer;
@@ -72,6 +73,9 @@ public class GameController : MonoBehaviour
             if (t is Tile tileB) tileB.PlayClearAnimation();
 
             _score.Add(10);
+            // 👇 check win
+            if (board.AllTilesCleared())
+                OnWin();
         }
         else
         {
@@ -83,5 +87,20 @@ public class GameController : MonoBehaviour
         }
 
         _first = null;
+    }
+
+    void OnWin()
+    {
+        Debug.Log("YOU WIN!");
+        resultView.ShowWin(_score.Score);
+        timerService.StopTimer();
+        HighScoreManager.Instance.TrySetHighScore(_score.Score);
+    }
+
+    void OnLose()
+    {
+        Debug.Log("YOU LOSE!");
+        resultView.ShowLose(_score.Score);
+        HighScoreManager.Instance.TrySetHighScore(_score.Score);
     }
 }

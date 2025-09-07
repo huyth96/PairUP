@@ -71,4 +71,14 @@ public class BoardPresenter : MonoBehaviour
     {
         if (tv is Tile t) t.Hide();
     }
+
+    public bool AllTilesCleared()
+    {
+        foreach (var tile in tiles)
+        {
+            if (tile != null && !tile.IsRemoved)
+                return false;
+        }
+        return true;
+    }
 }
