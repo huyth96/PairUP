@@ -43,3 +43,9 @@ public interface IGameTimer
     event Action<float> OnTick;   // ratio 0..1
     event Action OnTimeUp;
 }
+public interface IPlayerProgressService
+{
+    int HighScore { get; }
+    System.Collections.Generic.IReadOnlyList<int> RecentScores { get; }
+    void RecordGame(int score);
+}

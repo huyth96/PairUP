@@ -21,26 +21,17 @@ public class ResultView : MonoBehaviour
         if (losePanel) losePanel.SetActive(!showWin);
     }
 
-    public void ShowWin(int score)
+    public void ShowWin(int score, int highScore)
     {
-        int high = HighScoreManager.Instance
-            ? HighScoreManager.Instance.HighScore
-            : PlayerPrefs.GetInt("HighScore", 0);
-
         SetPanels(true);
         if (winScoreText) winScoreText.text = score.ToString();
-        if (winHighScoreText) winHighScoreText.text = high.ToString();
+        if (winHighScoreText) winHighScoreText.text = highScore.ToString();
     }
 
-    public void ShowLose(int score)
+    public void ShowLose(int score, int highScore)
     {
-        int high = HighScoreManager.Instance
-            ? HighScoreManager.Instance.HighScore
-            : PlayerPrefs.GetInt("HighScore", 0);
-
         SetPanels(false);
         if (loseScoreText) loseScoreText.text = score.ToString();
-        if (loseHighScoreText) loseHighScoreText.text = high.ToString();
+        if (loseHighScoreText) loseHighScoreText.text = highScore.ToString();
     }
-
 }
