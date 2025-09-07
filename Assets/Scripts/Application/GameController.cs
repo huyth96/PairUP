@@ -31,7 +31,12 @@ public class GameController : MonoBehaviour
         _finder = new GridPathFinderBFS(r, c, (row, col) => board.IsWalkable(row, col));
         board.OnTileClicked += HandleTileClicked;
 
-        if (timerService) timerService.StartTimer(60f);
+
+        if (timerService)
+        {
+            timerService.StartTimer(timerService.MaxTime); 
+            timerService.OnTimeUp += HandleTimeUp;         
+        }
     }
 
     void HandleTileClicked(ITileView t)
@@ -68,9 +73,8 @@ public class GameController : MonoBehaviour
             Debug.Log("Match found, path length=" + path.Count);
             _renderer?.DrawPath(path);
 
-            // Gọi animation clear thay vì ClearTile ngay lập tức
-            if (_first is Tile tileA) tileA.PlayClearAnimation();
-            if (t is Tile tileB) tileB.PlayClearAnimation();
+            StartCoroutine(ResolveMatchAndMaybeWin((Tile)_first, (Tile)t, 0.2f));
+
 
             _score.Add(10);
             // 👇 check win
@@ -88,19 +92,40 @@ public class GameController : MonoBehaviour
 
         _first = null;
     }
-
+    private void HandleTimeUp()
+    {
+        Debug.Log("Time is up → Lose");
+        OnLose();
+    }
     void OnWin()
     {
         Debug.Log("YOU WIN!");
-        resultView.ShowWin(_score.Score);
+        HighScoreManager.Instance.TrySetHighScore(_score.Score); // cập nhật trước
         timerService.StopTimer();
-        HighScoreManager.Instance.TrySetHighScore(_score.Score);
+        resultView.ShowWin(_score.Score);                        // rồi mới hiển thị
     }
+
 
     void OnLose()
     {
         Debug.Log("YOU LOSE!");
-        resultView.ShowLose(_score.Score);
         HighScoreManager.Instance.TrySetHighScore(_score.Score);
+        resultView.ShowLose(_score.Score);
     }
+
+    private System.Collections.IEnumerator ResolveMatchAndMaybeWin(Tile a, Tile b, float animDuration)
+    {
+        if (a) a.PlayClearAnimation(animDuration);
+        if (b) b.PlayClearAnimation(animDuration);
+
+        // chờ anim kết thúc + buffer nhỏ
+        yield return new WaitForSeconds(animDuration + 0.05f);
+
+        // (tùy chọn) xóa line sau khi đã clear xong
+        _renderer?.Clear();
+
+        if (board.AllTilesCleared())
+            OnWin();
+    }
+
 }
