@@ -40,11 +40,16 @@ public class AudioManager : MonoBehaviour
 
     public void Toggle(AudioBus bus, bool on)
     {
+        // Đổi tham số mixer tương ứng
         string p = bus == AudioBus.BGM ? bgmParam : bus == AudioBus.SFX ? sfxParam : masterParam;
-        mixer.SetFloat(p, on ? 0f : -80f);
-        if (bus == AudioBus.BGM && !on) bgmSource.Stop();
-    }
 
+        // 0 dB ~ tiếng bình thường, -80 dB ~ tắt tiếng (mute)
+        mixer.SetFloat(p, on ? 0f : -80f);
+
+        // Đồng bộ trạng thái mute của AudioSource (an toàn khi không dùng mixer)
+        if (bus == AudioBus.BGM && bgmSource) bgmSource.mute = !on;
+        if (bus == AudioBus.SFX && sfxSource) sfxSource.mute = !on;
+    }
     public void PlayBGM(AudioClip clip, bool loop = true)
     {
         if (!clip) return;
@@ -54,5 +59,21 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         if (clip) sfxSource.PlayOneShot(clip);
+    }
+    public bool IsOn(AudioBus bus)
+    {
+        string param = bus == AudioBus.BGM ? bgmParam
+                      : bus == AudioBus.SFX ? sfxParam
+                      : masterParam;
+
+        float value;
+        bool mixerOk = mixer.GetFloat(param, out value);
+        bool mixerOn = !mixerOk || value > -79f;
+
+        // Nếu có source, ưu tiên đọc cờ mute của source
+        if (bus == AudioBus.BGM && bgmSource) return !bgmSource.mute && mixerOn;
+        if (bus == AudioBus.SFX && sfxSource) return !sfxSource.mute && mixerOn;
+
+        return mixerOn;
     }
 }
