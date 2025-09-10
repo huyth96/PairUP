@@ -12,7 +12,9 @@ public class Tile : MonoBehaviour, IPointerClickHandler, ITileView
     public bool removed;
     private Vector3 originalScale;
     private Color originalColor;
-
+    // Tile.cs — thêm vào trong class
+    private bool _hintOn;
+    private Color _originalBg;
     [Header("Refs")]
     public Image bg;
     public Image icon;
@@ -23,10 +25,37 @@ public class Tile : MonoBehaviour, IPointerClickHandler, ITileView
     public int Col => col;
     public int Id => id;
     public bool IsRemoved => removed;
+    public Image Icon => icon;
+
     void Awake()
     {
         originalScale = transform.localScale;
-        if (bg != null) originalColor = bg.color;
+        if (bg != null) { originalColor = bg.color; _originalBg = bg.color; }
+    }
+    public void SetHint(bool on)
+    {
+        _hintOn = on;
+        if (bg != null)
+            bg.color = on ? new Color(0.2f, 1f, 1f, 1f) : _originalBg; // cyan nhạt
+        if (on)
+            transform.localScale = originalScale * 1.1f;
+        else
+            transform.localScale = originalScale;
+    }
+
+    // (không bắt buộc) blink nhẹ để thu hút mắt
+    public IEnumerator BlinkHint(float duration = 1.2f, float freq = 6f)
+    {
+        SetHint(true);
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float a = 0.5f + 0.5f * Mathf.Sin(t * freq);
+            if (bg != null) bg.color = Color.Lerp(new Color(0.2f, 1f, 1f, 0.8f), new Color(0.2f, 1f, 1f, 1f), a);
+            yield return null;
+        }
+        SetHint(false);
     }
     public void SetSelected(bool selected)
     {
@@ -97,5 +126,11 @@ public class Tile : MonoBehaviour, IPointerClickHandler, ITileView
             OnClicked?.Invoke(this);
         }
     }
-
+    public void SetIdAndIcon(int newId, Sprite sprite)
+    {
+        id = newId;
+        removed = false;
+        if (icon != null) { icon.sprite = sprite; icon.enabled = true; }
+        if (bg != null) bg.enabled = true;
+    }
 }

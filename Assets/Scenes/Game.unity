@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74cdd805a4a5d7c459098327658e44d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 20
+  maxTime: 99999
 --- !u!4 &844101347
 Transform:
   m_ObjectHideFlags: 0
@@ -3098,8 +3098,36 @@ MonoBehaviour:
   cols: 6
   spacing: 10
   sprites:
+  - {fileID: 21300000, guid: 8e2e259ac8a736045a7af26b7621afaa, type: 3}
+  - {fileID: 21300000, guid: d8ce571e55cb1034fa79c48a514b444e, type: 3}
+  - {fileID: 21300000, guid: 90c275f82ca06fd45aeda6ea4752089c, type: 3}
+  - {fileID: 21300000, guid: 919fc9470d150ca4ca540061cc68808a, type: 3}
+  - {fileID: 21300000, guid: 34a8892dbe82f5c4098e2eab12b46770, type: 3}
+  - {fileID: 21300000, guid: e220ce93c43fb054ba92f370f14ec0a8, type: 3}
+  - {fileID: 21300000, guid: 84bd71e3694efa540adec95111845b54, type: 3}
+  - {fileID: 21300000, guid: 55b66dd0166cc0d4d95960086b5aabc8, type: 3}
+  - {fileID: 21300000, guid: b5265fe69d73b0a4e8170158030f7286, type: 3}
   - {fileID: 21300000, guid: 07c6f501934611e4691a09e99fe709ad, type: 3}
+  - {fileID: 21300000, guid: 58a42cfb9633b9e4bb31d86228b2e4df, type: 3}
+  - {fileID: 21300000, guid: 34198d8a7e7a7084ca9c5189ce4ead8a, type: 3}
+  - {fileID: 21300000, guid: 1542591a578664f4e82bb8f4b29aac4f, type: 3}
+  - {fileID: 21300000, guid: b047b988097737848bd872321b1fddde, type: 3}
+  - {fileID: 21300000, guid: 7c3df747469908a49af76e638af57e4a, type: 3}
+  - {fileID: 21300000, guid: a18a37393423053409671bed7408336d, type: 3}
+  - {fileID: 21300000, guid: 32757dff38743344689abee510d2919a, type: 3}
+  - {fileID: 21300000, guid: 2f32d82ddd2ae674eb96c51f3a506a3f, type: 3}
+  - {fileID: 21300000, guid: 1b510568f71ff714fb68ef7131f29a33, type: 3}
+  - {fileID: 21300000, guid: c6453b79fd049514f91eadeb5265aff3, type: 3}
   - {fileID: 21300000, guid: 0e19a19165d75824c925c946195230d8, type: 3}
+  - {fileID: 21300000, guid: 8abfac033b9fa2149aed741866f2054b, type: 3}
+  - {fileID: 21300000, guid: 00bb61d15a0169d49a16991afeea27ce, type: 3}
+  - {fileID: 21300000, guid: 91b56b9c37afcf045a111710db4e7cc5, type: 3}
+  - {fileID: 21300000, guid: 96de2383a60320349b68335a88a535b8, type: 3}
+  - {fileID: 21300000, guid: 3900091befac08849ac7b81c57a6e258, type: 3}
+  - {fileID: 21300000, guid: 4c4106f9b03fbb54f9cb859f6328cce5, type: 3}
+  - {fileID: 21300000, guid: 9c8346b8e57ee3941978fc638e1244f8, type: 3}
+  - {fileID: 21300000, guid: 253e7a8804781f943adeb38448d2bb25, type: 3}
+  - {fileID: 21300000, guid: ea430bf803a1a5045b52e8927cc76af2, type: 3}
   pathDrawer: {fileID: 981658596}
 --- !u!1 &1076210330
 GameObject:
@@ -5729,7 +5757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2089796593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5789,7 +5817,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &2089796596
 Canvas:
   m_ObjectHideFlags: 0

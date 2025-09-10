@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
+using UnityEngine.InputSystem; 
 
 public class GameController : MonoBehaviour
 {
@@ -33,6 +36,62 @@ public class GameController : MonoBehaviour
 
         if (scoreView) scoreView.Bind(_score);
         if (timerView && timerService) timerView.Bind(timerService);
+    }
+    // GameController.cs — thêm vào class
+    Coroutine _hintCo;
+    bool _hintActive;
+    const float HintShowSeconds = 1.5f;
+
+    void Update()
+    {
+        // Input System only
+        if (Keyboard.current != null && Keyboard.current.f5Key.wasPressedThisFrame)
+        {
+            TriggerHint();
+        }
+    }
+
+    void TriggerHint()
+    {
+        if (_hintActive || board == null || _finder == null) return;
+
+        if (board.TryFindFirstHint(_finder, out var a, out var b, out var path))
+        {
+            if (_hintCo != null) StopCoroutine(_hintCo);
+            _hintCo = StartCoroutine(ShowHintRoutine(a, b, path));
+        }
+        else
+        {
+            Debug.Log("No available moves to hint.");
+        }
+    }
+
+    IEnumerator ShowHintRoutine(Tile a, Tile b, List<Vector2Int> path)
+    {
+        _hintActive = true;
+
+        // không động chạm tới _first selection hiện có; chỉ hiển thị
+        if (a) a.SetHint(true);
+        if (b) b.SetHint(true);
+
+        // vẽ đường gợi ý (dùng cùng renderer; sẽ tự Clear sau)
+        _renderer?.DrawPath(path);
+
+        // blink nhẹ (không bắt buộc)
+        Coroutine blinkA = null, blinkB = null;
+        if (a) blinkA = StartCoroutine(a.BlinkHint(HintShowSeconds));
+        if (b) blinkB = StartCoroutine(b.BlinkHint(HintShowSeconds));
+
+        yield return new WaitForSeconds(HintShowSeconds);
+
+        if (blinkA != null) StopCoroutine(blinkA);
+        if (blinkB != null) StopCoroutine(blinkB);
+
+        if (a) a.SetHint(false);
+        if (b) b.SetHint(false);
+        _renderer?.Clear();
+
+        _hintActive = false;
     }
 
     void OnEnable()
@@ -144,6 +203,7 @@ public class GameController : MonoBehaviour
         resultView.ShowLose(score, _progress.HighScore);
     }
 
+    // GameController.cs — thay thế ResolveMatchAndMaybeWin
     private IEnumerator ResolveMatchAndMaybeWin(Tile a, Tile b, float animDuration)
     {
         if (a) a.PlayClearAnimation(animDuration);
@@ -153,6 +213,13 @@ public class GameController : MonoBehaviour
         _renderer?.Clear();
 
         if (board.AllTilesCleared())
+        {
             OnWin();
+            yield break;
+        }
+
+        // NEW: nếu bế tắc thì xáo cho đến khi có nước đi
+        board.ShuffleUntilMovable(_finder, maxAttempts: 20);
     }
+
 }
