@@ -1,57 +1,78 @@
-﻿//#if UNITY_EDITOR
-//using System.Linq;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
-//public static class FillOnetSprites
-//{
-//    // THƯ MỤC CHỨA ICON (đổi cho phù hợp dự án của bạn)
-//    const string iconsFolder = "Assets/Art/Png/Parts";
+[CustomEditor(typeof(BoardPresenter))]
+public class BoardPresenterEditor : Editor
+{
+    private const string IconsFolder = "Assets/Art/Png/Parts";
+    private const int MaxCount = 30;
+    private static readonly Regex NamePattern = new Regex(@"^Onet0*(\d+)$", RegexOptions.IgnoreCase);
 
-//    [MenuItem("Tools/Fill Onet01–Onet30 on BoardManager")]
-//    static void Fill()
-//    {
-//        var bm = Object.FindObjectOfType<BoardManager>();
-//        if (bm == null) { Debug.LogError("Không tìm thấy BoardManager trong scene."); return; }
+    public override void OnInspectorGUI()
+    {
+        // Vẽ Inspector mặc định
+        DrawDefaultInspector();
 
-//        // Tìm tất cả Sprite trong folder chỉ định
-//        var guids = AssetDatabase.FindAssets("t:Sprite", new[] { iconsFolder });
-//        var allSprites = guids
-//            .Select(g => AssetDatabase.LoadAssetAtPath<Sprite>(AssetDatabase.GUIDToAssetPath(g)))
-//            .Where(s => s != null)
-//            .ToArray();
+        GUILayout.Space(10);
+        if (GUILayout.Button("Fill Onet1 → Onet30 từ Assets/Art/Png/Parts"))
+        {
+            FillSprites();
+        }
+    }
 
-//        // Lập map theo tên để tra cứu nhanh
-//        var byName = new Dictionary<string, Sprite>();
-//        foreach (var s in allSprites)
-//        {
-//            if (!byName.ContainsKey(s.name))
-//                byName.Add(s.name, s);
-//        }
+    private void FillSprites()
+    {
+        var bp = (BoardPresenter)target;
 
-//        // Lấy đúng các sprite Onet01..Onet30 theo thứ tự
-//        var wanted = new List<Sprite>();
-//        var missing = new List<string>();
+        // Tìm sprite trong thư mục
+        string[] guids = AssetDatabase.FindAssets("t:Sprite", new[] { IconsFolder });
+        var map = new Dictionary<int, Sprite>();
 
-//        for (int i = 1; i <= 30; i++)
-//        {
-//            string name = $"Onet{i:00}";
-//            if (byName.TryGetValue(name, out var sp))
-//                wanted.Add(sp);
-//            else
-//                missing.Add(name);
-//        }
+        foreach (var guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            var sp = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            if (sp == null) continue;
 
-//        bm.sprites = wanted.ToArray();
-//        EditorUtility.SetDirty(bm);
-//        AssetDatabase.SaveAssets();
+            var m = NamePattern.Match(sp.name);
+            if (!m.Success) continue;
 
-//        if (missing.Count > 0)
-//            Debug.LogWarning($"Thiếu sprite: {string.Join(", ", missing)}");
-//        else
-//            Debug.Log($"Đã điền {wanted.Count} sprite: Onet01 → Onet30 vào BoardManager.");
-//    }
-//}
-//#endif
+            if (int.TryParse(m.Groups[1].Value, out int n) && n >= 1 && n <= MaxCount)
+            {
+                map[n] = sp; // sprite đúng số
+            }
+        }
 
+        // Tạo list theo thứ tự 1..30
+        var wanted = new List<Sprite>();
+        var missing = new List<int>();
+        for (int i = 1; i <= MaxCount; i++)
+        {
+            if (map.TryGetValue(i, out var sp)) wanted.Add(sp);
+            else { wanted.Add(null); missing.Add(i); }
+        }
+
+        // Gán vào SerializedProperty (sprites là private)
+        var so = new SerializedObject(bp);
+        var spritesProp = so.FindProperty("sprites");
+
+        spritesProp.arraySize = MaxCount;
+        for (int i = 0; i < MaxCount; i++)
+        {
+            spritesProp.GetArrayElementAtIndex(i).objectReferenceValue = wanted[i];
+        }
+
+        so.ApplyModifiedProperties();
+        EditorUtility.SetDirty(bp);
+        AssetDatabase.SaveAssets();
+
+        if (missing.Count > 0)
+            Debug.LogWarning($"Thiếu sprite: {string.Join(", ", missing.ConvertAll(i => $"Onet{i} / Onet{i:00}"))}");
+        else
+            Debug.Log($"Đã điền đủ {MaxCount} sprite: Onet1 → Onet30 vào BoardPresenter.sprites");
+    }
+}
+#endif
