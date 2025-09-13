@@ -4616,6 +4616,9 @@ MonoBehaviour:
   timerView: {fileID: 1903802681}
   timerService: {fileID: 844101346}
   resultView: {fileID: 512764313}
+  clickSfx: {fileID: 8300000, guid: 0c46a2c93e14daf45951b7d8902f6099, type: 3}
+  matchSfx: {fileID: 8300000, guid: 1bc514dcff2b3f14dab564b3012dc8b2, type: 3}
+  matchFailSfx: {fileID: 8300000, guid: 465ee52c081bb2c4f954ae04647a550d, type: 3}
 --- !u!4 &1778777504
 Transform:
   m_ObjectHideFlags: 0
