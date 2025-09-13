@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     [SerializeField] TimerView timerView;
     [SerializeField] GameTimerService timerService;
     [SerializeField] ResultView resultView;
+    [SerializeField] private AudioClip clickSfx;
+    [SerializeField] private AudioClip matchSfx;
+    [SerializeField] private AudioClip matchFailSfx;
 
     // Services
     IPathRenderer _renderer;
@@ -124,6 +127,10 @@ public class GameController : MonoBehaviour
             Debug.Log("Clicked null or removed tile");
             return;
         }
+        // 🔊 Phát SFX đã gán sẵn cho Sfx Source
+        if (clickSfx)
+            AudioManager.Instance.PlaySFX(clickSfx);
+
 
         // === NEW: Debounce để tránh double-fire trên mobile ===
         if (_lastClicked == t && (Time.unscaledTime - _lastClickTime) < TapDebounce)
@@ -166,6 +173,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            if (matchFailSfx)
+                AudioManager.Instance.PlaySFX(matchFailSfx);
             Debug.Log("No match or path not found");
             if (_first is Tile tileView3) tileView3.SetSelected(false);
             if (t is Tile tileView4) tileView4.SetSelected(false);
@@ -208,7 +217,8 @@ public class GameController : MonoBehaviour
     {
         if (a) a.PlayClearAnimation(animDuration);
         if (b) b.PlayClearAnimation(animDuration);
-
+        if (matchSfx)
+            AudioManager.Instance.PlaySFX(matchSfx);
         yield return new WaitForSeconds(animDuration + 0.05f);
         _renderer?.Clear();
 
