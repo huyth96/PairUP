@@ -256,6 +256,24 @@ public class BoardPresenter : MonoBehaviour
         }
         return false;
     }
+    public void ForceShuffle(IPathFinder finder, int maxAttempts = 50)
+    {
+        if (finder == null) return;
+
+        for (int attempt = 1; attempt <= maxAttempts; attempt++)
+        {
+            ShuffleOnce();                          // xáo dữ liệu Id+Icon (không đổi vị trí)
+            if (HasAnyMove(finder))
+            {
+                pathDrawer?.Reinit();               // nếu layer vẽ cần cập nhật tâm icon
+                Debug.Log($"ForceShuffle ok ở lần {attempt}.");
+                return;
+            }
+        }
+
+        Debug.LogWarning($"ForceShuffle: thử {maxAttempts} lần vẫn chưa tạo được nước đi.");
+    }
+
 
 }
 
