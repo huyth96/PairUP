@@ -1,12 +1,14 @@
+﻿using UnityEngine;
+
 public sealed class ScoreService : IScoreService
 {
     public int Score { get; private set; }
     public event System.Action<int> OnScoreChanged;
 
-    public void Add(int p)
+    public void Add(int amount)
     {
-        if (p <= 0) return;
-        Score += p;
+        if (amount == 0) return;
+        Score = Mathf.Max(0, Score + amount); // cho phép âm, không âm dưới 0
         OnScoreChanged?.Invoke(Score);
     }
 

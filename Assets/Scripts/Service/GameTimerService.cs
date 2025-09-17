@@ -33,6 +33,14 @@ public sealed class GameTimerService : MonoBehaviour, IGameTimer
         TimeLeft = duration;
         IsRunning = true;
     }
+    public void AddTime(float seconds)
+    {
+        // Nếu chưa chạy thì không làm gì
+        if (!IsRunning) return;
+
+        // Cộng thêm thời gian, nhưng không vượt quá Duration gốc (nếu bạn muốn giới hạn)
+        TimeLeft = Mathf.Min(TimeLeft + seconds, Duration);
+    }
 
     public void StopTimer() => IsRunning = false;
 }
